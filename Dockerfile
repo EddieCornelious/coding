@@ -1,7 +1,5 @@
 FROM node:20-slim
 
-RUN apt-get update || : && apt-get install python -y
-
 WORKDIR /starter
 ENV NODE_ENV development
 
