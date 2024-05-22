@@ -37,7 +37,7 @@ app.get("/py", function(req, res){
   console.log("in js");
     
     const { spawn } = require('child_process');
-    const pyProg = spawn('python', ["./A.py"]);
+    const pyProg = spawn('python3', ["./A.py"]);
   
     pyProg.stdout.on('data', function(data) {
   
