@@ -9,8 +9,8 @@ RUN cd . /starter
 RUN apt-get update && apt-get install -y git
 RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git emsdk
 RUN cd emsdk
-RUN emsdk install latest
-RUN emsdk activate latest
+RUN /emsdk install latest
+RUN /emsdk activate latest
 RUN source emsdk_env.sh
 RUN ./emcc -v
 RUN cd ../
