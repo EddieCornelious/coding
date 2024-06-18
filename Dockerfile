@@ -7,10 +7,10 @@ COPY .env.example /starter/.env.example
 COPY . /starter
 RUN apt-get update && apt-get install -y git
 RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git
-RUN apt-get update && apt-get install -y python-pip
+RUN apt-get update && apt-get install -y python3
 WORKDIR emsdk
-RUN ./emsdk install latest
-RUN ./emsdk activate latest 
+RUN python ./emsdk install latest
+RUN python ./emsdk activate latest 
 RUN source ./emsdk_env.sh
 WORKDIR /starter
 
