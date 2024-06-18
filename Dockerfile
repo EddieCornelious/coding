@@ -13,7 +13,7 @@ RUN apt-get install xz-utils
 RUN ./emsdk install 3.1.56
 RUN ./emsdk activate 3.1.56
 RUN . ./emsdk_env.sh
-RUN ./emcc -v
+RUN emcc -v
 WORKDIR /starter
 
 #RUN npm install pm2 -g
