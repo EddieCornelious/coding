@@ -7,7 +7,9 @@ COPY .env.example /starter/.env.example
 COPY . /starter
 RUN apt-get update && apt-get install -y git
 RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git
-RUN . /emsdk ./emsdk install latest
+WORKDIR emsdk
+RUN ./emsdk install latest && ./emsdk activate latest && source ./emsdk_env.sh
+WORKDIR /starter
 #RUN apt-get update && apt-get install -y python3
 #RUN npm install pm2 -g
 #RUN if [ "$NODE_ENV" = "production" ]; then \
