@@ -10,8 +10,8 @@ RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git
 RUN apt-get update && apt-get install -y python3
 WORKDIR emsdk
 RUN apt-get install xz-utils 
-RUN ./emsdk install 3.1.56
-RUN ./emsdk activate 3.1.56
+RUN ./emsdk install latest
+RUN ./emsdk activate latest
 RUN . ./emsdk_env.sh && ./emcc -v 
 WORKDIR /starter
 
