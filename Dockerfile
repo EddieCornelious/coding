@@ -5,17 +5,15 @@ ENV NODE_ENV development
 
 COPY .env.example /starter/.env.example
 COPY . /starter
-RUN cd . /starter
 RUN apt-get update && apt-get install -y git
-RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git emsdk
-RUN cd emsdk
-RUN /emsdk install latest
-RUN /emsdk activate latest
+RUN apt-get update
+RUN apt-get install -y python3
+RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git . /starter/emsdk
+RUN . /starter/emsdk/emsdk install latest
+RUN . /starter/emsdk/emsdk activate latest
 RUN source emsdk_env.sh
 RUN ./emcc -v
 RUN cd ../
-RUN apt-get update
-RUN apt-get install -y python3
 RUN npm install pm2 -g
 RUN if [ "$NODE_ENV" = "production" ]; then \
     npm install --omit=dev; \
