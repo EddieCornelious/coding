@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y git
 RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git
 RUN apt-get update && apt-get install -y python3
 WORKDIR emsdk
-RUN python ./emsdk install latest
-RUN python ./emsdk activate latest 
+RUN ./emsdk install 3.1.56
+RUN ./emsdk activate 3.1.56
 RUN source ./emsdk_env.sh
 WORKDIR /starter
 
