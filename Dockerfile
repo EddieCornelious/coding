@@ -12,7 +12,7 @@ WORKDIR emsdk
 RUN apt-get install xz-utils 
 RUN ./emsdk install 3.1.56
 RUN ./emsdk activate 3.1.56
-RUN source ./emsdk_env.sh
+RUN . ./emsdk_env.sh
 WORKDIR /starter
 
 #RUN npm install pm2 -g
