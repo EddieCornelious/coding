@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:20-slim
 
 WORKDIR /starter
 ENV NODE_ENV development
@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y git
 RUN git clone --depth=1 https://github.com/emscripten-core/emsdk.git
 RUN apt-get update && apt-get install -y python3
 WORKDIR emsdk
+RUN apt-get install xz-utils 
 RUN ./emsdk install 3.1.56
 RUN ./emsdk activate 3.1.56
 RUN source ./emsdk_env.sh
