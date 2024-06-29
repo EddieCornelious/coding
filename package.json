@@ -14,7 +14,6 @@
   "scripts": {
     "postinstall": "patch-package && npm run scss",
     "start": "npm run scss && node app.js",
-    "test": "nyc mocha --timeout=60000 --exit",
     "lint": "eslint \"**/*.js\"",
     "scss": "sass --no-source-map --load-path=./ --update ./public/css:./public/css",
     "lintStage": "node_modules/.bin/lint-staged"
@@ -88,6 +87,7 @@
     "eslint-plugin-chai-friendly": "^0.7.2",
     "eslint-plugin-import": "^2.28.1",
     "husky": "^8.0.3",
+    "jest": "^29.7.0",
     "lint-staged": "^15.0.1",
     "mocha": "^10.2.0",
     "mongodb-memory-server": "^9.0.1",
