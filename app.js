@@ -21,7 +21,7 @@ app.post('/execute', (req, res) => {
   for(let i=0; i<test.tests; i++){
     result.push({expected: test[i].o, actual: add(...test[i].i)})
 
-  } window.top.postMessage(result, "https://eddiecornelious.github.io/A/")`;
+  } window.top.postMessage(JSON.stringify({"data": result}), "https://eddiecornelious.github.io/A/")`;
 
   const html = `
     <!DOCTYPE html>
