@@ -15,13 +15,15 @@ app.post('/execute', (req, res) => {
   
   
   const testAdd = `
+  try{
   const test = ${JSON.stringify(_test)};
   const result = [];
   ${code}
   for(let i=0; i<test.testCount; i++){
     result.push({"expected": test[i].o, "actual": add(...test[i].i)})
 
-  } window.top.postMessage(JSON.stringify({"data": result}), "https://eddiecornelious.github.io/A/")`;
+  } window.top.postMessage(JSON.stringify({"data": result}), "https://eddiecornelious.github.io/A/")
+  } catch(error){window.top.postMessage(JSON.stringify({"error": error}), "https://eddiecornelious.github.io/A/")}`;
 
   const html = `
     <!DOCTYPE html>
@@ -31,7 +33,7 @@ app.post('/execute', (req, res) => {
     </head>
     <body>
       <h1>Hello from Express!</h1>
-      <script>try{${testAdd}}catch(error){window.top.postMessage(JSON.stringify({"error": error}), "https://eddiecornelious.github.io/A/")}</script>
+      <script>${testAdd}</script>
     </body>
     </html>`;
   res.send(html);
