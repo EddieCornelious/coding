@@ -33,14 +33,6 @@ app.post('/execute', (req, res) => {
     <body>
       <h1>Hello from Express!</h1>
       <script>
-      
-window.onerror = function(message, url, lineNumber, columnNumber) {
-
-    window.top.postMessage(JSON.stringify({"error": message}), "https://eddiecornelious.github.io/A/")
-
-    return true; // Prevent the default error handling behavior
-
-};
       ${testAdd}
       </script>
     </body>
