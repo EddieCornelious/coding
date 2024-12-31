@@ -36,12 +36,22 @@ app.post('/execute', (req, res) => {
       function startJS(){
         ${testAdd}
       }
-      window.onerror = function myHandler(msg, url, line){
-        window.top.postMessage(JSON.stringify({"error": msg+" Errrrrr"}), "https://eddiecornelious.github.io/A/")
-     }
-      try{
-        startJS();
-      } catch(e){window.top.postMessage(JSON.stringify({"error": e+" Errrrrr"}), "https://eddiecornelious.github.io/A/")}
+      
+    document.addEventListener("DOMContentLoaded", e=>{
+      
+       
+      window.addEventListener("error",e=>{
+        window.top.postMessage(JSON.stringify({"error1": "OOOO"}), "https://eddiecornelious.github.io/A/")
+        
+      })
+
+      window.addEventListener("load",e=>{
+        try{startJS();} catch(e){ window.top.postMessage(JSON.stringify({"error2": "III"}), "https://eddiecornelious.github.io/A/") }
+        
+        
+      })
+    })
+     
       </script>
     </body>
     </html>`;
