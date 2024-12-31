@@ -33,10 +33,15 @@ app.post('/execute', (req, res) => {
     <body>
       <h1>Hello from Express!</h1>
       <script>
+      function startJS(){
+        ${testAdd}
+      }
       window.onerror = function myHandler(msg, url, line){
         window.top.postMessage(JSON.stringify({"error": msg+" Errrrrr"}), "https://eddiecornelious.github.io/A/")
      }
-      ${testAdd}
+      try{
+        startJS();
+      } catch(e){window.top.postMessage(JSON.stringify({"error": e+" Errrrrr"}), "https://eddiecornelious.github.io/A/")}
       </script>
     </body>
     </html>`;
