@@ -31,7 +31,7 @@ app.post('/execute', (req, res) => {
     </head>
     <body>
       <h1>Hello from Express!</h1>
-      <script>try{${testAdd}}catch(error){window.top.postMessage(JSON.stringify({"error": error}), "https://eddiecornelious.github.io/A/")}`</script>
+      <script>try{${testAdd}}catch(error){window.top.postMessage(JSON.stringify({"error": error}), "https://eddiecornelious.github.io/A/")}</script>
     </body>
     </html>`;
   res.send(html);
