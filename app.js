@@ -17,11 +17,11 @@ app.post('/execute', (req, res) => {
   const testAdd = `
   const test = ${JSON.stringify(_test)};
   const result = [];
-  const code = ${code};
+  const code = ${code}
   for(let i=0; i<test.tests; i++){
     result.push({expected: test[i].o, actual: add(...test[i].i)})
 
-  }; window.top.postMessage(result, "https://eddiecornelious.github.io/A/")`;
+  } window.top.postMessage(result, "https://eddiecornelious.github.io/A/")`;
 
   const html = `
     <!DOCTYPE html>
