@@ -18,7 +18,7 @@ app.post('/execute', (req, res) => {
  
   const test = ${JSON.stringify(_test)};
   const result = [];
-  ${code}
+  try{${code}} catch(e){window.top.postMessage(JSON.stringify({"error": e}), "https://eddiecornelious.github.io/A/")};
   for(let i=0; i<test.testCount; i++){
     result.push({"expected": test[i].o, "actual": add(...test[i].i)})
 
@@ -33,24 +33,8 @@ app.post('/execute', (req, res) => {
     <body>
       <h1>Hello from Express!</h1>
       <script>
-      function startJS(){
+      
         ${testAdd}
-      }
-      
-    document.addEventListener("DOMContentLoaded", e=>{
-      
-       
-      window.addEventListener("error",e=>{
-        window.top.postMessage(JSON.stringify({"error1": "OOOO"}), "https://eddiecornelious.github.io/A/")
-        
-      })
-
-      window.addEventListener("load",e=>{
-        try{startJS();} catch(e){ window.top.postMessage(JSON.stringify({"error2": "III"}), "https://eddiecornelious.github.io/A/") }
-        
-        
-      })
-    })
      
       </script>
     </body>
