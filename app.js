@@ -17,7 +17,7 @@ app.post('/execute', (req, res) => {
   const testAdd = `
   const test = ${JSON.stringify(_test)};
   const result = [];
-  const code = ${code}
+  ${code}
   for(let i=0; i<test.testCount; i++){
     result.push({"expected": test[i].o, "actual": add(...test[i].i)})
 
