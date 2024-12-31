@@ -33,7 +33,10 @@ app.post('/execute', (req, res) => {
     <body>
       <h1>Hello from Express!</h1>
       <script>
-      try{${testAdd}} catch(e){window.top.postMessage(JSON.stringify({"error": e}), "https://eddiecornelious.github.io/A/")}
+      window.onerror = function myHandler(msg, url, line){
+        window.top.postMessage(JSON.stringify({"error": msg+" Errrrrr"}), "https://eddiecornelious.github.io/A/")
+     }
+      ${testAdd}
       </script>
     </body>
     </html>`;
