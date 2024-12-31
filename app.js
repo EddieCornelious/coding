@@ -8,6 +8,7 @@ const port = 3000;
 
 var app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/execute', (req, res) => {
   const code = req.body.code;
   const testID = req.body.testID;
