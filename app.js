@@ -41,11 +41,17 @@ app.get('/execute', (req, res) => {
 });
 
 
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
 
-
+/** 
+ * DEV
 app.listen(port, hostname, () => {
   console.log(`Server listening on http://${hostname}:${port}`);
 });
+
+**/
 
 
 
