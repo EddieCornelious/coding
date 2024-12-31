@@ -15,10 +15,14 @@ app.post('/execute', (req, res) => {
   
   
   const testAdd = `
- 
+  window.onerror = function(message, source, lineNumber, columnNumber, error) {
+  console.error('Syntappp BROOOOO:', message);
+  window.top.postMessage(JSON.stringify({"error": "Wronggg"}), "https://eddiecornelious.github.io/A/")
+};
   const test = ${JSON.stringify(_test)};
   const result = [];
-  try{${code}} catch(e){window.top.postMessage(JSON.stringify({"error": e}), "https://eddiecornelious.github.io/A/")};
+  ${code};
+  
   for(let i=0; i<test.testCount; i++){
     result.push({"expected": test[i].o, "actual": add(...test[i].i)})
 
