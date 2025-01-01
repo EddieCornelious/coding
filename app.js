@@ -12,6 +12,15 @@ app.post('/execute', (req, res) => {
   const code = req.body.code;
   const testID = req.body.testID;
   const _test = Object.freeze(require("./tests/add.test.json"));
+
+  
+try {
+  new vm.Script(code);
+  console.log('Code is syntactically correct.');
+} catch (err) {
+  console.error('Syntax error:', err.message);
+  res.send("<h1> You Code Contains Syntax errors : "+ err);
+}
   
   
   const testAdd = `
