@@ -8,6 +8,13 @@ const port = 3000;
 
 var app = express();
 app.use(express.urlencoded({ extended: true }));
+
+//view html page in iframe takes css and js and html and shows it
+app.get("/view", (req,res)=>{
+
+});
+
+
 app.post('/execute', (req, res) => {
   const code = req.body.code;
   const testID = req.body.testID;
