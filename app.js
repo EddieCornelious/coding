@@ -10,8 +10,36 @@ var app = express();
 app.use(express.urlencoded({ extended: true }));
 
 //view html page in iframe takes css and js and html and shows it
-app.get("/view", (req,res)=>{
+app.post("/view", (req,res)=>{
+  const html = req.body.html || `<h1>No HTML Was Given</h1>`;
+  const css = req.body.css || ``;
+  const js = req.body.js || ``;
 
+
+
+  
+  res.send(`
+    <html>
+    <head>
+    <style>
+    ${css}
+    
+    </style>
+
+    <body>
+    ${html}
+    <script>
+    ${js}
+    
+    </script>
+    
+    </body>
+    
+    </head>
+
+
+    
+    </html>`)
 });
 
 
@@ -65,18 +93,17 @@ try {
   
 });
 
-
+/**
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+*/
 
-/** 
- * DEV
 app.listen(port, hostname, () => {
   console.log(`Server listening on http://${hostname}:${port}`);
 });
 
-**/
+
 
 
 
